@@ -14,6 +14,7 @@
 // @icon         https://github.githubassets.com/pinned-octocat.svg
 // @homepageURL  https://github.com/gravityfargo/TamperMonkeyScripts
 // @downloadURL  https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/gist.github/script.js
+// @updateURL    https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/gist.github/script.js
 // @supportURL   https://github.com/gravityfargo/TamperMonkeyScripts/issues
 // @require      https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @require      https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js

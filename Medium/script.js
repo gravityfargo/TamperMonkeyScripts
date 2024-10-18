@@ -9,6 +9,7 @@
 // @grant        GM_getResourceText
 // @homepageURL  https://github.com/gravityfargo/TamperMonkeyScripts
 // @downloadURL  https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Medium/script.js
+// @updateURL    https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Medium/script.js
 // @supportURL   https://github.com/gravityfargo/TamperMonkeyScripts/issues
 // @resource     mediumDomainList https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Medium/domainlist.json
 // ==/UserScript==
