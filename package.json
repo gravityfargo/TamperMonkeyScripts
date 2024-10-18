@@ -1,0 +1,41 @@
+{
+  "name": "tampermonkey-userscripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Hi\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@gera2ld/plaid": "^2.7.0",
+    "@gera2ld/plaid-rollup": "^2.7.0",
+    "del-cli": "^6.0.0",
+    "husky": "^9.1.6",
+    "standard": "^17.1.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.25.7",
+    "@gera2ld/jsx-dom": "^2.2.2",
+    "solid-js": "^1.9.2"
+  },
+  "standard": {
+    "ignore": [
+      "node_modules/**",
+      "Github/common.js"
+    ],
+    "globals": [
+      "VM",
+      "GM_addStyle",
+      "GM_getResourceText",
+      "GM_xmlhttpRequest",
+      "GM_setClipboard",
+      "createButton",
+      "IconCopy",
+      "MutationObserver",
+      "unsafeWindow"
+    ]
+  }
+}

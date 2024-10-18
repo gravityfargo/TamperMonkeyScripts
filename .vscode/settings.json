@@ -1,0 +1,8 @@
+{
+  "javascript.format.enable": false,
+  "javascript.validate.enable": false,
+  "standard.enable": true,
+  "standard.autoFixOnSave": true,
+  "standard.validate": ["javascript", "javascriptreact"],
+  "prettier.enable": false
+}
