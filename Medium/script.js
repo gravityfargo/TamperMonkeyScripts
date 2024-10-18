@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Medium Auto Redirect
-// @version      0.0.2
+// @version      0.0.3
 // @description  Redirects based on predefined conditions
 // @author       Nathan Price
 // @license      GPL-3.0
 // @match        *://*/*
 // @run-at       document-start
 // @grant        GM_getResourceText
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=medium.com
 // @homepageURL  https://github.com/gravityfargo/TamperMonkeyScripts
 // @downloadURL  https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Medium/script.js
 // @updateURL    https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Medium/script.js
