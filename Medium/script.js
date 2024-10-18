@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Medium Auto Redirect
-// @version      0.0.3
+// @version      0.0.4
 // @description  Redirects based on predefined conditions
 // @author       Nathan Price
 // @license      GPL-3.0
@@ -19,14 +19,20 @@ const windowLocationHost = unsafeWindow.location.host
 const windowLocationHref = unsafeWindow.location.href
 const mediumDomainList = JSON.parse(GM_getResourceText('mediumDomainList'))
 
-function checkMediumMetaAndroidUrl () {
-  const metaTag = document.head?.querySelector('meta[property="al:android:url"]')
-  return metaTag?.content?.includes('medium://p/')
+function checkIfSecretlyMedium () {
+  const metaTag = document.querySelector('meta[property="al:ios:app_name"]')
+  if (metaTag === null) {
+    return false
+  }
+  return metaTag.content.includes('Medium')
 }
 
-function checkMediumMetaOgType () {
-  const metaTag = document.head?.querySelector('meta[property="og:type"]')
-  return metaTag?.content?.includes('article')
+function checkIfArticle () {
+  const metaTag = document.querySelector('meta[property="og:type"]')
+  if (metaTag === null) {
+    return false
+  }
+  return metaTag.content.includes('article')
 }
 
 function pushFreediumURL () {
@@ -36,26 +42,23 @@ function pushFreediumURL () {
 function checkDomain () {
   // If medium.com in the URL no regex
   if (windowLocationHost.includes('medium.com')) {
-    // Check if an article
-    if (checkMediumMetaOgType()) {
+    if (checkIfArticle()) {
       pushFreediumURL()
-      return
     }
     return
   }
 
   // If the Android meta URL is a medium:// URL
-  if (checkMediumMetaAndroidUrl()) {
-    if (checkMediumMetaOgType()) {
+  if (checkIfSecretlyMedium()) {
+    if (checkIfArticle()) {
       pushFreediumURL()
-      return
     }
     return
   }
 
   // Otherwise, check if the current domain is in the list
   if (mediumDomainList.includes(windowLocationHost)) {
-    if (checkMediumMetaOgType()) {
+    if (checkIfArticle()) {
       pushFreediumURL()
     }
   }
