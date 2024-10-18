@@ -16,15 +16,8 @@
 // @downloadURL  https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/gist.github/script.js
 // @updateURL    https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/gist.github/script.js
 // @supportURL   https://github.com/gravityfargo/TamperMonkeyScripts/issues
-// @require      https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
-// @require      https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
 // @require      https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Github/common.js
 // ==/UserScript==
-
-VM.observe(document.body, () => { // eslint-disable-line
-  init()
-  return true
-})
 
 function getSource (fileUrl) {
   return new Promise((resolve, reject) => {
@@ -107,4 +100,21 @@ function init () {
   }
 }
 
-init()
+function observe (node, callback, options) {
+  const observer = new MutationObserver((mutations, ob) => {
+    const result = callback(mutations, ob)
+    if (result) disconnect()
+  })
+  observer.observe(node, Object.assign({
+    childList: true,
+    subtree: true
+  }, options))
+
+  const disconnect = () => observer.disconnect()
+
+  return disconnect
+}
+
+observe(document.body, () => {
+  init()
+})
