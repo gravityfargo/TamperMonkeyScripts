@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gravityfargo's Stackoverflow
 // @namespace    Violentmonkey Scripts
-// @version      0.0.4
+// @version      0.0.1
 // @description  Useful Scripts for Stackoverflow
 // @author       Nathan Price
 // @license      GPL-3.0
