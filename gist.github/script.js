@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Github Gist Addons
 // @namespace    Violentmonkey Scripts
-// @version      2024-10-16
+// @version      0.0.3
 // @description  Add a copy button to code blocks on GitHub Gist
 // @author       Nathan Price
 // @license      GPL-3.0
 // @match        https://gist.github.com/*
-// @run-at       document-start
+// @run-at       document-idle
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
 // @grant        GM_xmlhttpRequest
@@ -21,7 +21,7 @@
 // @require      https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Github/common.js
 // ==/UserScript==
 
-const disconnect = VM.observe(document.body, () => { // eslint-disable-line
+VM.observe(document.body, () => { // eslint-disable-line
   init()
   return true
 })
@@ -76,6 +76,10 @@ async function copyToClipboard (fileUrl) {
 function init () {
   const fileDivs = document.getElementsByClassName('file')
 
+  if (fileDivs === null) {
+    return
+  }
+
   for (const fileDiv of fileDivs) {
     const rightButtonGrp = fileDiv.querySelector('.file-actions')
     if (rightButtonGrp.children.length !== 1) {
@@ -101,3 +105,5 @@ function init () {
     })
   }
 }
+
+init()
