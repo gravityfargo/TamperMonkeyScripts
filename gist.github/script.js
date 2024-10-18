@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Github Gist Addons
 // @namespace    Violentmonkey Scripts
-// @version      0.0.3
+// @version      0.0.4
 // @description  Add a copy button to code blocks on GitHub Gist
 // @author       Nathan Price
 // @license      GPL-3.0
