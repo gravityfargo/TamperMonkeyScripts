@@ -76,12 +76,13 @@ async function copyToClipboard (fileUrl) {
 function init () {
   const fileDivs = document.getElementsByClassName('file')
 
-  if (fileDivs === null) {
-    return
-  }
-
   for (const fileDiv of fileDivs) {
     const rightButtonGrp = fileDiv.querySelector('.file-actions')
+
+    if (rightButtonGrp === null) {
+      return
+    }
+
     if (rightButtonGrp.children.length !== 1) {
       return
     }
