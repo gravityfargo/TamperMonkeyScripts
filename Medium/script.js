@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Gravityfargo's Auto Redirect
+// @name         Medium Auto Redirect
 // @version      2024-10-17
 // @description  Redirects based on predefined conditions
 // @author       Nathan Price
@@ -7,6 +7,9 @@
 // @match        *://*/*
 // @run-at       document-start
 // @grant        GM_getResourceText
+// @homepageURL  https://github.com/gravityfargo/TamperMonkeyScripts
+// @downloadURL  https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Medium/script.js
+// @supportURL   https://github.com/gravityfargo/TamperMonkeyScripts/issues
 // @resource     mediumDomainList https://raw.githubusercontent.com/gravityfargo/TamperMonkeyScripts/refs/heads/main/Medium/domainlist.json
 // ==/UserScript==
 
