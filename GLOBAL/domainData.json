@@ -1,0 +1,26 @@
+{
+    "takacsmark.com": {
+        "queryOne": [
+            "article div.fixed"
+        ],
+        "queryAll": [],
+        "ids": [
+            "SignupForm_0",
+            "PopupSignupForm_0"
+        ]
+    },
+    "github.blog": {
+        "queryOne": [],
+        "queryAll": [],
+        "ids": [
+            "newsletter|parent|2"
+        ]
+    },
+    "geeksforgeeks.org": {
+        "queryOne": [],
+        "queryAll": [],
+        "ids": [
+            "rightBarSaleBanner"
+        ]
+    }
+}
