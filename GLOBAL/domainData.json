@@ -22,5 +22,14 @@
         "ids": [
             "rightBarSaleBanner"
         ]
+    },
+    "dev.to": {
+        "queryOne": [
+            "#page-content-inner div.crayons-layout.crayons-layout--3-cols.crayons-layout--article aside.crayons-layout__sidebar-right div.crayons-article-sticky.grid.gap-4.break-word.js-billboard-container"
+        ],
+        "queryAll": [],
+        "ids": [
+            "runtime-banner-container|sibling|up|1"
+        ]
     }
 }
