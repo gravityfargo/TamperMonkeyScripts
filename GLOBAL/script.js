@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gravityfargo's Global Script
 // @namespace    Violentmonkey Scripts
-// @version      0.0.2
+// @version      0.0.3
 // @description  Useful Scripts for general browsing
 // @author       Nathan Price
 // @license      GPL-3.0
@@ -24,11 +24,7 @@
 const windowLocationHost = unsafeWindow.location.host
 const domainDataUpstream = JSON.parse(GM_getResourceText('domainDataUpstream'))
 const domainDataLocal = {
-  'dev.to': {
-    queryOne: ['#page-content-inner div.crayons-layout.crayons-layout--3-cols.crayons-layout--article aside.crayons-layout__sidebar-right div.crayons-article-sticky.grid.gap-4.break-word.js-billboard-container'],
-    queryAll: [],
-    ids: ['runtime-banner-container|sibling|up|1']
-  }
+
 }
 
 const domainData = { ...domainDataUpstream, ...domainDataLocal }
