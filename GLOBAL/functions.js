@@ -6,12 +6,13 @@
  *
  * @param {string} queryStr - The CSS selector used to identify elements to be removed.
  * @param {ParentNode} [parent=document] - The parent node within which to search for elements. Defaults to the document.
+ * @param {boolean}  log - Whether to log messages to the console. Defaults to false.
  *
  * @returns {void} - This function does not return a value.
  */
-function querySelectorAllDelete (queryStr, parent = document) {
+function querySelectorAllDelete (queryStr, parent = document, log = false) {
   parent.querySelectorAll(queryStr).forEach((el) => {
-    console.log(el)
+    if (log) console.log(el)
     el.remove()
   })
 }
@@ -21,20 +22,22 @@ function querySelectorAllDelete (queryStr, parent = document) {
  *
  * @param {Function} runForHead - The function to execute when the head element is loaded.
  * @param {Function} runForBody - The function to execute when the body element is loaded.
+ * @param {boolean}  log - Whether to log messages to the console. Defaults to false.
+ *
+ * @returns {void} - This function does not return a value.
  */
-
-function observeHeadAndBody (runForHead, runForBody) {
+function observeHeadAndBody (runForHead, runForBody, log = false) {
   const observer = new MutationObserver((mutationsList, observer) => {
     const headElement = document.head
     const bodyElement = document.body
 
     if (headElement && typeof runForHead === 'function') {
-      console.log('The head is now loaded!')
+      if (log) console.log('Head loaded!')
       runForHead() // Execute the passed function for head
     }
 
     if (bodyElement && typeof runForBody === 'function') {
-      console.log('The body is now loaded!')
+      if (log) console.log('Body loaded!')
       runForBody()
       observer.disconnect() // Stop observing once fully loaded
     }
