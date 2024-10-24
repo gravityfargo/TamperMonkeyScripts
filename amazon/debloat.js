@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gravityfargo's Amazon Script
 // @namespace    Violentmonkey Scripts
-// @version      0.0.1
+// @version      0.0.2
 // @description  Debloat Amazon.com
 // @author       Nathan Price
 // @license      GPL-3.0
@@ -15,13 +15,19 @@
 // @match       *://amazon.com/*
 // ==/UserScript==
 
-function runForHead () {
-  console.log('Executing logic for head')
-}
+// function runForHead () {
+//   querySelectorAllDelete('noscript', document, true)
 
-function runForBody () {
-  console.log('Executing logic for body')
-}
+//   const scripts = document.querySelectorAll('script')
+//   removeElementsByAttribute(scripts, 'rocketlazyloadscript', true)
 
-// Call the observer function and pass in your custom functions
-observeHeadAndBody(runForHead, runForBody, true)
+//   const srcStubs = ['APE-SafeFrame', 'apesafeframe', 'forensics-incremental.min.js']
+//   removeIfAttributeIncludes(scripts, 'src', srcStubs, true)
+
+//   const contentStubs = ['window.grandprix', 'APE-SafeFrame', 'apesafeframe', 'AmazonNavigationRufusCard', 'eel.SponsoredProductsEventTracking.prod', 'forensics-incremental.min.js']
+//   removeIfAttributeIncludes(scripts, 'src', contentStubs, true)
+// }
+
+// function runForBody () {
+//   // querySelectorAllDelete('noscript', document, true)
+// }
