@@ -35,7 +35,15 @@
       "createButton",
       "IconCopy",
       "MutationObserver",
-      "unsafeWindow"
+      "unsafeWindow",
+      "removeIfAttributeIncludes",
+      "GM_notification",
+      "querySelectorAllDelete",
+      "querySelectorDelete",
+      "monitorElementChildren",
+      "waitForElementToAppear",
+      "Element",
+      "NodeList"
     ]
   }
 }

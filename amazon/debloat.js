@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gravityfargo's Amazon Script
 // @namespace    Violentmonkey Scripts
-// @version      0.0.2
+// @version      0.0.3
 // @description  Debloat Amazon.com
 // @author       Nathan Price
 // @license      GPL-3.0
@@ -15,19 +15,42 @@
 // @match       *://amazon.com/*
 // ==/UserScript==
 
-// function runForHead () {
-//   querySelectorAllDelete('noscript', document, true)
+function runForHead (element) {
+  console.log('>>> runForHead <<<')
+  querySelectorAllDelete('noscript', element)
 
-//   const scripts = document.querySelectorAll('script')
-//   removeElementsByAttribute(scripts, 'rocketlazyloadscript', true)
+  const scripts = element.querySelectorAll('script')
+  const srcStubs = ['APE-SafeFrame', 'apesafeframe', 'forensics-incremental.min.js']
+  removeIfAttributeIncludes(scripts, 'src', srcStubs)
 
-//   const srcStubs = ['APE-SafeFrame', 'apesafeframe', 'forensics-incremental.min.js']
-//   removeIfAttributeIncludes(scripts, 'src', srcStubs, true)
+  const contentStubs = ['window.grandprix', 'APE-SafeFrame', 'apesafeframe', 'AmazonNavigationRufusCard', 'eel.SponsoredProductsEventTracking.prod', 'forensics-incremental.min.js']
+  removeIfAttributeIncludes(scripts, 'innerHTML', contentStubs)
+}
 
-//   const contentStubs = ['window.grandprix', 'APE-SafeFrame', 'apesafeframe', 'AmazonNavigationRufusCard', 'eel.SponsoredProductsEventTracking.prod', 'forensics-incremental.min.js']
-//   removeIfAttributeIncludes(scripts, 'src', contentStubs, true)
-// }
+function runForBody (element, mutations) {
+  console.log('>>> runForBody <<<')
+  querySelectorAllDelete('noscript', element)
+  querySelectorAllDelete('iframe', element)
+}
 
-// function runForBody () {
-//   // querySelectorAllDelete('noscript', document, true)
-// }
+function monitorBody () {
+  querySelectorDelete('#nav-swmslot') // Primeday/NFL Counter
+
+  monitorElementChildren('body', (mutations, element, isElementNotFound) => {
+    runForBody(element, mutations)
+  })
+}
+
+waitForElementToAppear('head', element => {
+  if (element) {
+    runForHead(element) // Run once when the head appears
+  }
+})
+
+waitForElementToAppear('body', element => {
+  if (element) {
+    // Run one more time when we know the head is fully loaded. Just in case.
+    runForHead(element)
+    monitorBody()
+  }
+})
